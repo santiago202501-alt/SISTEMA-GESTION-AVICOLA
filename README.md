@@ -75,6 +75,7 @@ El diseño orientado a objetos define las entidades principales, sus atributos, 
 * **`EstadoSensor`**: `ACTIVO`, `INACTIVO`, `FALLA`.
 * **`TipoConsumo`**: `ALIMENTO`, `AGUA`.
 * **`NivelAlerta`**: `CRIT`, `WARN`, `OK`.
+  ### link
 https://drive.google.com/drive/folders/15ZtwqyFIx3AvaAI0KJdHYuzebWLXXBhm?usp=drive_link
 
 ## Diagrama de componentes 
@@ -100,6 +101,7 @@ El sistema **SIGA Avícola** se organiza mediante un esquema por capas que desac
 ### 🗄️ 4. Subsistema: Capa de Datos y Persistencia
 * **Repositorios**: `Consumo Repository`, `Lote Repository`, `Sensor Repository`, `Alerta Repository` y `Galpón Repository`. Encargados de abstraer la comunicación con la base de datos.
 * **`Base de datos`**: Base de datos relacional **MySQL - InnoDB** (`siga_avicola`), la cual recibe y procesa todas las consultas SQL emitidas por los repositorios.
+  ### link
 * https://drive.google.com/drive/folders/1ApXewjp5ks--klJuIjsrUwLB9HP_Dfw2?usp=drive_link
 
 ## Diagrama de paquetes 
@@ -127,6 +129,7 @@ Administra la operación biológica y el control de insumos de los lotes.
 ### 🔔 4. Paquete `gestion_operacional`
 Módulo transversal para el control de incidencias del sistema.
 * **`alerta`**: Registro unificado de notificaciones y eventos anómalos disparados por sensores o galpones (`id_galpon`, `id_sensor`, `tipo`, `titulo`, `descripcion`, `leida`).
+  ### link
 * https://drive.google.com/drive/folders/1SFLdc2suXPcetvhh-T60ukXjJPw522QI?usp=drive_link
 
 ## Diagrama de despliegue 
@@ -156,4 +159,5 @@ Almacena y gestiona la persistencia de los datos del sistema.
 ### 📱 4. Terminal de Usuario
 Representa los clientes finales desde los cuales se accede a la plataforma visual.
 * Soporta la interacción desde navegadores web (Chrome, Firefox) y dispositivos móviles (Android / iOS) a través de peticiones seguras `HTTP/HTTPS :443`.
+  ### link
 * https://drive.google.com/drive/folders/11viHQWiDaP-0Ev3hwxxmACV-8fJo6ssy?usp=drive_link
