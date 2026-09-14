@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SIGA Avícola - Spring Boot
 
 Versión Java del sistema SIGA, con login, roles, permisos, aislamiento por cliente y CRUD operativo.
@@ -28,3 +29,7 @@ Las contraseñas BCrypt existentes en el SQL original son compatibles con Spring
 Dashboard, Galpones, Agua, Alimento, Amoniaco, Mortalidad, Inventario, Movimientos, Alertas, Reportes, Usuarios, Clientes y Roles.
 
 La carpeta `legacy-php` de los paquetes anteriores se conserva como referencia, pero esta versión ya no depende de PHP/XAMPP para ejecutarse.
+=======
+# SISTEMA-GESTION-AVICOLA
+sistema para el cuidado de las gallinas 
+>>>>>>> ca12e3caebe67c179110b32cf8b19174a4a28c67
