@@ -1,0 +1,626 @@
+/* ============================================================
+   SIGA - Sistema Integral de Gestión Avícola
+   Hoja de estilos principal
+   Paleta: Azul oscuro #1a3a5c · Verde #2e7d52 · Blanco #f8fafc
+   ============================================================ */
+
+:root {
+  --siga-blue:      #1a3a5c;
+  --siga-blue-mid:  #2a5298;
+  --siga-blue-lt:   #3d6eb5;
+  --siga-green:     #2e7d52;
+  --siga-green-lt:  #43a875;
+  --siga-amber:     #e67e22;
+  --siga-red:       #c0392b;
+  --siga-white:     #f8fafc;
+  --siga-gray-50:   #f1f5f9;
+  --siga-gray-100:  #e2e8f0;
+  --siga-gray-300:  #cbd5e1;
+  --siga-gray-500:  #64748b;
+  --siga-gray-700:  #334155;
+  --siga-gray-900:  #0f172a;
+
+  --sidebar-w:  260px;
+  --topbar-h:   62px;
+  --radius:     12px;
+  --radius-sm:  8px;
+  --shadow:     0 4px 20px rgba(26,58,92,.10);
+  --shadow-sm:  0 2px 8px rgba(26,58,92,.07);
+  --transition: .22s ease;
+
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--siga-gray-50); color: var(--siga-gray-900); }
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   LAYOUT WRAPPER
+   ============================================================ */
+.siga-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--siga-blue);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  z-index: 1000;
+  transition: transform var(--transition);
+}
+
+.sidebar-header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sidebar-logo i {
+  color: var(--siga-green-lt);
+  font-size: 1.8rem;
+}
+
+.sidebar-sub {
+  display: block;
+  margin-top: 2px;
+  font-size: .72rem;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Nav links */
+.sidebar-nav {
+  list-style: none;
+  flex: 1;
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+.nav-label {
+  padding: 14px 20px 4px;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 20px;
+  color: rgba(255,255,255,.72);
+  font-size: .88rem;
+  font-weight: 500;
+  border-radius: 0;
+  transition: background var(--transition), color var(--transition);
+  position: relative;
+}
+
+.sidebar-nav li a i {
+  width: 18px;
+  text-align: center;
+  font-size: .95rem;
+  flex-shrink: 0;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  background: rgba(255,255,255,.10);
+  color: #fff;
+}
+
+.sidebar-nav li a.active::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--siga-green-lt);
+  border-radius: 0 3px 3px 0;
+}
+
+.badge-alerta {
+  margin-left: auto;
+  background: var(--siga-red);
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-user { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+
+.user-avatar {
+  width: 36px; height: 36px;
+  background: var(--siga-green);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+
+.user-info { min-width: 0; }
+.user-name  { display: block; font-size: .82rem; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-role  { display: block; font-size: .70rem; color: rgba(255,255,255,.5); }
+
+.btn-logout {
+  color: rgba(255,255,255,.5);
+  font-size: 1rem;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  flex-shrink: 0;
+}
+.btn-logout:hover { color: #fff; background: rgba(255,255,255,.1); }
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin var(--transition);
+}
+
+/* TOPBAR */
+.topbar {
+  height: var(--topbar-h);
+  background: #fff;
+  border-bottom: 1px solid var(--siga-gray-100);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  font-size: 1.15rem;
+  color: var(--siga-gray-500);
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+  display: none;
+}
+.sidebar-toggle:hover { background: var(--siga-gray-50); }
+
+.topbar-title h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--siga-gray-700);
+  flex: 1;
+}
+
+.topbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-date {
+  font-size: .82rem;
+  color: var(--siga-gray-500);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* PAGE BODY */
+.page-body { padding: 28px 28px; flex: 1; }
+
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
+.stat-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--siga-gray-100);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.stat-icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.stat-icon.blue   { background: rgba(42,82,152,.10); color: var(--siga-blue-mid); }
+.stat-icon.green  { background: rgba(46,125,82,.12); color: var(--siga-green); }
+.stat-icon.amber  { background: rgba(230,126,34,.12); color: var(--siga-amber); }
+.stat-icon.red    { background: rgba(192,57,43,.10); color: var(--siga-red); }
+.stat-icon.teal   { background: rgba(13,148,136,.10); color: #0d9488; }
+.stat-icon.purple { background: rgba(109,40,217,.10); color: #6d28d9; }
+
+.stat-info { min-width: 0; }
+.stat-value { font-size: 1.65rem; font-weight: 700; color: var(--siga-gray-900); line-height: 1; }
+.stat-label { font-size: .78rem; color: var(--siga-gray-500); margin-top: 4px; font-weight: 500; }
+
+/* ============================================================
+   CARDS GENÉRICAS
+   ============================================================ */
+.siga-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--siga-gray-100);
+  overflow: hidden;
+}
+
+.siga-card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--siga-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.siga-card-title {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--siga-gray-700);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.siga-card-title i { color: var(--siga-blue-mid); }
+
+.siga-card-body { padding: 20px; }
+
+/* ============================================================
+   ALERTAS
+   ============================================================ */
+.alerta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  font-size: .85rem;
+}
+
+.alerta-item.critica    { background: #fef2f2; border-left: 3px solid var(--siga-red); }
+.alerta-item.advertencia{ background: #fffbeb; border-left: 3px solid #f59e0b; }
+.alerta-item.info       { background: #eff6ff; border-left: 3px solid var(--siga-blue-mid); }
+
+.alerta-item i { margin-top: 2px; }
+.alerta-item.critica i     { color: var(--siga-red); }
+.alerta-item.advertencia i { color: #f59e0b; }
+.alerta-item.info i        { color: var(--siga-blue-mid); }
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.table-siga { font-size: .85rem; }
+.table-siga thead th {
+  background: var(--siga-gray-50);
+  font-weight: 600;
+  font-size: .75rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--siga-gray-500);
+  border-bottom: 2px solid var(--siga-gray-100);
+  padding: 12px 16px;
+}
+.table-siga tbody td { padding: 13px 16px; vertical-align: middle; }
+.table-siga tbody tr:hover { background: var(--siga-gray-50); }
+
+/* BADGES */
+.badge-estado {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 600;
+}
+.badge-activo        { background: #dcfce7; color: #15803d; }
+.badge-inactivo      { background: #fee2e2; color: #b91c1c; }
+.badge-mantenimiento { background: #fef9c3; color: #92400e; }
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+.form-label { font-size: .83rem; font-weight: 600; color: var(--siga-gray-700); }
+.form-control, .form-select {
+  border-color: var(--siga-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: .88rem;
+  padding: 9px 13px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--siga-blue-mid);
+  box-shadow: 0 0 0 3px rgba(42,82,152,.12);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-siga-primary {
+  background: var(--siga-blue);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px 20px;
+  font-size: .86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.btn-siga-primary:hover { background: var(--siga-blue-mid); transform: translateY(-1px); color: #fff; }
+
+.btn-siga-success {
+  background: var(--siga-green);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px 20px;
+  font-size: .86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.btn-siga-success:hover { background: var(--siga-green-lt); color: #fff; }
+
+/* ============================================================
+   LOGIN PAGE
+   ============================================================ */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--siga-blue) 0%, var(--siga-blue-mid) 60%, var(--siga-green) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 44px 40px;
+  width: 100%;
+  max-width: 430px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-logo .logo-icon {
+  width: 68px; height: 68px;
+  background: linear-gradient(135deg, var(--siga-blue), var(--siga-green));
+  border-radius: 18px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.login-logo h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--siga-blue);
+  line-height: 1;
+}
+
+.login-logo p {
+  font-size: .8rem;
+  color: var(--siga-gray-500);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   CHART WRAPPER
+   ============================================================ */
+.chart-wrapper { position: relative; height: 260px; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 992px) {
+  .sidebar { transform: translateX(calc(-1 * var(--sidebar-w))); }
+  .sidebar.open { transform: translateX(0); }
+  .main-content { margin-left: 0; }
+  .sidebar-toggle { display: flex; }
+  .page-body { padding: 20px 16px; }
+}
+
+@media (max-width: 576px) {
+  .login-card { padding: 32px 24px; }
+  .stat-value { font-size: 1.35rem; }
+}
+
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+.text-siga-blue  { color: var(--siga-blue-mid) !important; }
+.text-siga-green { color: var(--siga-green) !important; }
+.gap-2 { gap: .5rem !important; }
+.fw-600 { font-weight: 600 !important; }
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--siga-gray-700);
+  margin-bottom: 16px;
+}
+/* ==========================================================
+   TOPBAR
+========================================================== */
+
+.topbar{
+    height:70px;
+    background:#ffffff;
+    border-bottom:1px solid #dee2e6;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.topbar-left h4{
+    margin:0;
+    color:#2c3e50;
+    font-weight:600;
+}
+
+.topbar-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+/* ==========================================================
+   CAMPANA
+========================================================== */
+
+.notification{
+    position:relative;
+    text-decoration:none;
+    color:#2c3e50;
+    font-size:24px;
+    transition:.3s;
+}
+
+.notification:hover{
+    color:#0d6efd;
+}
+
+.notification-count{
+
+    position:absolute;
+    top:-8px;
+    right:-12px;
+
+    background:#dc3545;
+    color:#fff;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:12px;
+    font-weight:bold;
+
+}
+
+/* ==========================================================
+   USUARIO
+========================================================== */
+
+.user-top{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.user-top i{
+
+    color:#0d6efd;
+
+}
+
+.user-top strong{
+
+    color:#2c3e50;
+
+}
+
+.user-top small{
+
+    color:#6c757d;
+
+}
+
+/* ==========================================================
+   TARJETAS
+========================================================== */
+
+.dashboard-card{
+
+    border:none;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.dashboard-icon{
+
+    font-size:45px;
+
+    opacity:.8;
+
+}

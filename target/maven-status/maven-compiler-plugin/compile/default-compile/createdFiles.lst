@@ -1,0 +1,16 @@
+com\siga\security\SigaSecurity.class
+com\siga\web\HomeController.class
+com\siga\SigaApplication.class
+com\siga\web\AdminController.class
+com\siga\web\ModuleController.class
+com\siga\data\ModuleRegistry.class
+com\siga\data\ModuleDefinition.class
+com\siga\data\DataService.class
+com\siga\data\ModuleDefinition$Field.class
+com\siga\security\SigaUserDetailsService.class
+com\siga\security\SigaUser.class
+com\siga\web\ReportController.class
+com\siga\security\SigaUserDetailsService$UsuarioData.class
+com\siga\web\DashboardController.class
+com\siga\security\SecurityConfig.class
+com\siga\web\AuthPagesController.class

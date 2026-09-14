@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title th:text="${title} + ' · SIGA Avícola'">SIGA Avícola</title><link rel="stylesheet" href="/css/siga.css"></head>
+<body>
+<nav class="topbar" th:fragment="nav"><div class="brand"><span class="brand-mark">S</span><div><strong>SIGA</strong><small>Gestión Avícola</small></div></div><div class="top-actions"><span class="user-chip"><b th:text="${user.nombreCompleto}">Usuario</b><small th:text="${user.rol}">rol</small></span><form action="/logout" method="post"><button class="btn ghost" type="submit">Cerrar sesión</button></form></div></nav>
+<aside class="sidebar" th:fragment="sidebar">
+<a href="/dashboard" class="nav-link">⌂ <span>Dashboard</span></a>
+<a href="/modules/galpones" class="nav-link">🏠 <span>Galpones</span></a><a href="/modules/agua" class="nav-link">💧 <span>Agua</span></a><a href="/modules/alimento" class="nav-link">🌾 <span>Alimento</span></a><a href="/modules/amoniaco" class="nav-link">🧪 <span>Amoniaco</span></a><a href="/modules/mortalidad" class="nav-link">⚠️ <span>Mortalidad</span></a><a href="/modules/inventario" class="nav-link">📦 <span>Inventario</span></a><a href="/modules/movimientos" class="nav-link">🔄 <span>Movimientos</span></a><a href="/modules/alertas" class="nav-link">🔔 <span>Alertas</span></a>
+<div class="nav-section">Administración</div><a href="/admin/usuarios" class="nav-link">👤 <span>Usuarios</span></a><a href="/admin/clientes" class="nav-link">🏢 <span>Clientes</span></a><a href="/admin/roles" class="nav-link">🛡️ <span>Roles y permisos</span></a><a href="/reportes" class="nav-link">📊 <span>Reportes</span></a>
+</aside></body></html>
